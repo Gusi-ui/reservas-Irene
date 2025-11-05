@@ -52,53 +52,45 @@ Ahora que el código está en GitHub, vamos a configurar todo para que tu sitio 
 
 ### 1.3 Insertar Servicios Iniciales
 
-Vuelve al SQL Editor y ejecuta esto para crear los servicios de nutrición:
+**¡IMPORTANTE!** El script `supabase-setup.sql` ya incluye servicios y horarios por defecto. Si los quieres ver:
+
+1. Ve a **Table Editor** → **services** - Verás 4 servicios ya creados
+2. Ve a **Table Editor** → **time_slots** - Verás horarios de Lunes a Viernes
+
+**Si quieres añadir servicios adicionales**, ejecuta este SQL (OPCIONAL):
 
 ```sql
--- Insertar servicios de nutrición
-INSERT INTO services (name, description, base_price, duration_minutes, is_active) VALUES
-('Consulta Nutricional Primera Visita', 'Evaluación completa del estado nutricional, análisis de hábitos alimentarios y plan personalizado.', 60.00, 60, true),
-('Consulta de Seguimiento', 'Revisión de progreso, ajustes al plan nutricional y resolución de dudas.', 45.00, 45, true),
-('Plan Nutricional Personalizado', 'Diseño de menús semanales adaptados a tus necesidades y objetivos específicos.', 80.00, 90, true),
-('Asesoramiento Deportivo', 'Nutrición especializada para rendimiento deportivo y composición corporal.', 70.00, 60, true);
+-- Servicios adicionales personalizados
+INSERT INTO services (name, description, base_price, base_duration, service_type, is_active) VALUES
+('Consulta Nutricional Primera Visita', 
+ 'Evaluación completa del estado nutricional y plan personalizado inicial.', 
+ 90.00, 120, 'general', true),
 
--- Insertar horarios disponibles (ejemplo: Lunes a Viernes, 9:00 - 18:00)
+('Consulta de Seguimiento', 
+ 'Revisión de progreso y ajustes al plan nutricional.', 
+ 60.00, 60, 'general', true),
+
+('Plan Nutricional Personalizado', 
+ 'Diseño completo de menús semanales personalizados.', 
+ 30.00, 30, 'addon', true),
+
+('Nutrición Deportiva', 
+ 'Asesoramiento nutricional para rendimiento deportivo.', 
+ 70.00, 60, 'specialized', true);
+```
+
+**Si quieres añadir más horarios**, ejecuta este SQL (OPCIONAL):
+
+```sql
+-- Horarios del fin de semana (Sábados)
 INSERT INTO time_slots (day_of_week, start_time, end_time, is_available) VALUES
--- Lunes (1)
-(1, '09:00', '10:00', true),
-(1, '10:00', '11:00', true),
-(1, '11:00', '12:00', true),
-(1, '12:00', '13:00', true),
-(1, '16:00', '17:00', true),
-(1, '17:00', '18:00', true),
--- Martes (2)
-(2, '09:00', '10:00', true),
-(2, '10:00', '11:00', true),
-(2, '11:00', '12:00', true),
-(2, '12:00', '13:00', true),
-(2, '16:00', '17:00', true),
-(2, '17:00', '18:00', true),
--- Miércoles (3)
-(3, '09:00', '10:00', true),
-(3, '10:00', '11:00', true),
-(3, '11:00', '12:00', true),
-(3, '12:00', '13:00', true),
-(3, '16:00', '17:00', true),
-(3, '17:00', '18:00', true),
--- Jueves (4)
-(4, '09:00', '10:00', true),
-(4, '10:00', '11:00', true),
-(4, '11:00', '12:00', true),
-(4, '12:00', '13:00', true),
-(4, '16:00', '17:00', true),
-(4, '17:00', '18:00', true),
--- Viernes (5)
-(5, '09:00', '10:00', true),
-(5, '10:00', '11:00', true),
-(5, '11:00', '12:00', true),
-(5, '12:00', '13:00', true),
-(5, '16:00', '17:00', true),
-(5, '17:00', '18:00', true);
+(6, '09:00', '09:30', true),
+(6, '09:30', '10:00', true),
+(6, '10:00', '10:30', true),
+(6, '10:30', '11:00', true),
+(6, '11:00', '11:30', true),
+(6, '11:30', '12:00', true),
+(6, '12:00', '12:30', true);
 ```
 
 ### 1.4 Obtener las Credenciales de Supabase
