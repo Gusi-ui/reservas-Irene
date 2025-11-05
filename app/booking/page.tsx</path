@@ -1,0 +1,276 @@
+'use client';
+
+import { useState } from 'react';
+import { Service } from '@/types';
+import { ServiceSelector } from '@/components/booking/ServiceSelector';
+import { DateTimePicker } from '@/components/booking/DateTimePicker';
+import { CustomerForm } from '@/components/booking/CustomerForm';
+
+type BookingStep = 'service' | 'datetime' | 'customer' | 'confirmation';
+
+export default function BookingPage() {
+  const [currentStep, setCurrentStep] = useState<BookingStep>('service');
+  const [selectedService, setSelectedService] = useState<Service | null>(null);
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+  const [selectedTime, setSelectedTime] = useState<string>('');
+  const [customerData, setCustomerData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    notes: ''
+  });
+  const [totalPrice, setTotalPrice] = useState(0);
+  const [visitType, setVisitType] = useState<'first' | 'second' | 'followup'>('first');
+
+  // Detectar tipo de visita basado en email (simplificado)
+  const detectVisitType = (email: string) => {
+    // En un caso real, esto vendría de la API/base de datos
+    const storedEmail = localStorage.getItem('customer-email');
+    if (storedEmail === email) {
+      const visitCount = parseInt(localStorage.getItem('visit-count') || '1');
+      if (visitCount === 1) return 'second';
+      return 'followup';
+    }
+    return 'first';
+  };
+
+  const handleServiceSelect = (service: Service) => {
+    setSelectedService(service);
+    setCurrentStep('datetime');
+  };
+
+  const handleDateTimeSelect = (date: Date, time: string) => {
+    setSelectedDate(date);
+    setSelectedTime(time);
+    setCurrentStep('customer');
+  };
+
+  const handleCustomerData = (data: typeof customerData) => {
+    setCustomerData(data);
+    
+    // Detectar tipo de visita
+    const newVisitType = detectVisitType(data.email);
+    setVisitType(newVisitType);
+    
+    // Calcular precio según el tipo de visita
+    let price = 60; // Precio base
+    
+    if (newVisitType === 'first') {
+      price = 90;
+    } else if (newVisitType === 'second') {
+      price = 60; // + 30€ opcional por plan de nutrición
+    }
+    
+    setTotalPrice(price);
+    setCurrentStep('confirmation');
+  };
+
+  const goBack = () => {
+    if (currentStep === 'datetime') setCurrentStep('service');
+    if (currentStep === 'customer') setCurrentStep('datetime');
+    if (currentStep === 'confirmation') setCurrentStep('customer');
+  };
+
+  const resetBooking = () => {
+    setCurrentStep('service');
+    setSelectedService(null);
+    setSelectedDate(null);
+    setSelectedTime('');
+    setCustomerData({ name: '', email: '', phone: '', notes: '' });
+    setTotalPrice(0);
+  };
+
+  const getStepTitle = () => {
+    switch (currentStep) {
+      case 'service': return 'Selecciona tu servicio';
+      case 'datetime': return 'Elige fecha y hora';
+      case 'customer': return 'Tus datos de contacto';
+      case 'confirmation': return 'Confirma tu reserva';
+      default: return 'Reserva tu consulta';
+    }
+  };
+
+  const getStepDescription = () => {
+    switch (currentStep) {
+      case 'service': return '¿Qué tipo de consulta necesitas?';
+      case 'datetime': return '¿Cuándo te viene mejor?';
+      case 'customer': return 'Necesitamos tu información para completar la reserva';
+      case 'confirmation': return 'Revisa todos los detalles antes de confirmar';
+      default: return 'Proceso de reserva en 4 pasos';
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-neutral-50 py-12">
+      <div className="container">
+        {/* Header */}
+        <div className="mx-auto max-w-3xl text-center mb-12">
+          <h1 className="text-3xl font-bold text-neutral-900 sm:text-4xl">
+            {getStepTitle()}
+          </h1>
+          <p className="mt-4 text-lg text-neutral-600">
+            {getStepDescription()}
+          </p>
+        </div>
+
+        {/* Progress Indicator */}
+        <div className="mx-auto max-w-4xl mb-12">
+          <nav aria-label="Progress">
+            <ol role="list" className="space-y-4 md:flex md:space-x-8 md:space-y-0">
+              <li className="md:flex-1">
+                <div className={`group flex flex-col border-l-4 py-2 pl-4 md:border-l-0 md:border-t-4 md:pb-0 md:pl-0 md:pt-4 ${
+                  currentStep === 'service' ? 'border-primary-600' : 
+                  ['datetime', 'customer', 'confirmation'].includes(currentStep) ? 'border-success-500' : 'border-neutral-300'
+                }`}>
+                  <span className={`text-sm font-medium ${
+                    currentStep === 'service' ? 'text-primary-600' : 
+                    ['datetime', 'customer', 'confirmation'].includes(currentStep) ? 'text-success-600' : 'text-neutral-600'
+                  }`}>
+                    Paso 1: Servicio
+                  </span>
+                  <span className="text-sm text-neutral-500">
+                    Selecciona el tipo de consulta
+                  </span>
+                </div>
+              </li>
+              <li className="md:flex-1">
+                <div className={`group flex flex-col border-l-4 py-2 pl-4 md:border-l-0 md:border-t-4 md:pb-0 md:pl-0 md:pt-4 ${
+                  currentStep === 'datetime' ? 'border-primary-600' : 
+                  ['customer', 'confirmation'].includes(currentStep) ? 'border-success-500' : 'border-neutral-300'
+                }`}>
+                  <span className={`text-sm font-medium ${
+                    currentStep === 'datetime' ? 'text-primary-600' : 
+                    ['customer', 'confirmation'].includes(currentStep) ? 'text-success-600' : 'text-neutral-600'
+                  }`}>
+                    Paso 2: Fecha y Hora
+                  </span>
+                  <span className="text-sm text-neutral-500">
+                    Elige cuándo quieres tu consulta
+                  </span>
+                </div>
+              </li>
+              <li className="md:flex-1">
+                <div className={`group flex flex-col border-l-4 py-2 pl-4 md:border-l-0 md:border-t-4 md:pb-0 md:pl-0 md:pt-4 ${
+                  currentStep === 'customer' ? 'border-primary-600' : 
+                  ['confirmation'].includes(currentStep) ? 'border-success-500' : 'border-neutral-300'
+                }`}>
+                  <span className={`text-sm font-medium ${
+                    currentStep === 'customer' ? 'text-primary-600' : 
+                    ['confirmation'].includes(currentStep) ? 'text-success-600' : 'text-neutral-600'
+                  }`}>
+                    Paso 3: Datos Personales
+                  </span>
+                  <span className="text-sm text-neutral-500">
+                    Información de contacto
+                  </span>
+                </div>
+              </li>
+              <li className="md:flex-1">
+                <div className={`group flex flex-col border-l-4 py-2 pl-4 md:border-l-0 md:border-t-4 md:pb-0 md:pl-0 md:pt-4 ${
+                  currentStep === 'confirmation' ? 'border-primary-600' : 'border-neutral-300'
+                }`}>
+                  <span className={`text-sm font-medium ${
+                    currentStep === 'confirmation' ? 'text-primary-600' : 'text-neutral-600'
+                  }`}>
+                    Paso 4: Confirmación
+                  </span>
+                  <span className="text-sm text-neutral-500">
+                    Revisa y confirma tu reserva
+                  </span>
+                </div>
+              </li>
+            </ol>
+          </nav>
+        </div>
+
+        {/* Step Content */}
+        <div className="mx-auto max-w-4xl">
+          {currentStep === 'service' && (
+            <div className="booking-step">
+              <ServiceSelector 
+                onServiceSelect={handleServiceSelect}
+                selectedService={selectedService}
+              />
+            </div>
+          )}
+
+          {currentStep === 'datetime' && selectedService && (
+            <div className="booking-step">
+              <DateTimePicker 
+                onDateTimeSelect={handleDateTimeSelect}
+                selectedDate={selectedDate}
+                selectedTime={selectedTime}
+                serviceId={selectedService.id}
+              />
+              
+              <div className="mt-8 flex justify-start">
+                <button 
+                  onClick={goBack}
+                  className="btn btn-secondary"
+                >
+                  ← Volver
+                </button>
+              </div>
+            </div>
+          )}
+
+          {currentStep === 'customer' && selectedService && selectedDate && selectedTime && (
+            <div className="booking-step">
+              <CustomerForm 
+                onCustomerData={handleCustomerData}
+                onNext={() => {}}
+                selectedService={selectedService}
+                selectedDate={selectedDate}
+                selectedTime={selectedTime}
+                totalPrice={totalPrice}
+                visitType={visitType}
+              />
+            </div>
+          )}
+
+          {currentStep === 'confirmation' && selectedService && selectedDate && selectedTime && (
+            <div className="booking-step">
+              <div className="text-center py-12">
+                <div className="w-16 h-16 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <svg className="w-8 h-8 text-success-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                
+                <h2 className="text-2xl font-bold text-neutral-900 mb-4">
+                  ¡Reserva completada exitosamente!
+                </h2>
+                
+                <div className="bg-neutral-50 rounded-lg p-6 mb-6 text-left max-w-md mx-auto">
+                  <h3 className="font-semibold mb-4">Detalles de tu reserva:</h3>
+                  <div className="space-y-2 text-sm">
+                    <div><strong>Servicio:</strong> {selectedService.name}</div>
+                    <div><strong>Fecha:</strong> {selectedDate?.toLocaleDateString('es-ES')}</div>
+                    <div><strong>Hora:</strong> {selectedTime}</div>
+                    <div><strong>Tipo:</strong> {
+                      visitType === 'first' ? 'Primera visita' :
+                      visitType === 'second' ? 'Segunda visita' :
+                      'Visita de seguimiento'
+                    }</div>
+                    <div><strong>Total:</strong> {totalPrice}€</div>
+                  </div>
+                </div>
+                
+                <p className="text-neutral-600 mb-6">
+                  Recibirás una confirmación por email y WhatsApp.
+                </p>
+                
+                <button 
+                  onClick={resetBooking}
+                  className="btn btn-primary"
+                >
+                  Hacer otra reserva
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -1,0 +1,105 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Customer {
+  id            String    @id @default(uuid())
+  email         String    @unique
+  name          String?
+  phone         String?
+  firstVisitDate DateTime?
+  visitCount    Int       @default(0)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  bookings      Booking[]
+
+  @@map("customers")
+}
+
+model Service {
+  id          String    @id @default(uuid())
+  name        String
+  description String?
+  basePrice   Float
+  baseDuration Int       // Duration in minutes
+  serviceType String
+  isActive    Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  bookings    Booking[]
+
+  @@map("services")
+}
+
+model Booking {
+  id                String            @id @default(uuid())
+  customerId        String
+  serviceId         String
+  bookingDate       DateTime
+  bookingTime       String
+  duration          Int               // Duration in minutes
+  totalPrice        Float
+  status            String            @default("pending")
+  stripePaymentId   String?
+  whatsappNotified  Boolean           @default(false)
+  notes             String?
+  createdAt         DateTime          @default(now())
+  updatedAt         DateTime          @updatedAt
+
+  customer          Customer          @relation(fields: [customerId], references: [id])
+  service           Service           @relation(fields: [serviceId], references: [id])
+  addons            BookingAddon[]
+  transactions      Transaction[]
+
+  @@map("bookings")
+}
+
+model BookingAddon {
+  id          String    @id @default(uuid())
+  bookingId   String
+  addonName   String
+  addonPrice  Float
+  createdAt   DateTime  @default(now())
+
+  booking     Booking   @relation(fields: [bookingId], references: [id])
+
+  @@map("booking_addons")
+}
+
+model Transaction {
+  id                String    @id @default(uuid())
+  bookingId         String
+  stripePaymentId   String    @unique
+  amount            Float
+  currency          String    @default("EUR")
+  status            String
+  paymentMethod     String?
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  booking           Booking   @relation(fields: [bookingId], references: [id])
+
+  @@map("transactions")
+}
+
+model TimeSlot {
+  id          String    @id @default(uuid())
+  dayOfWeek   Int       // 0 = Sunday, 1 = Monday, etc.
+  startTime   String    // HH:MM format
+  endTime     String    // HH:MM format
+  isAvailable Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@map("time_slots")
+}

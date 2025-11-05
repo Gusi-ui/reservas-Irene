@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Irene Nutrición - Bienestar Integral</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': {
+                            500: '#667eea',
+                            600: '#5568d3',
+                        },
+                        'secondary': {
+                            500: '#d946ef',
+                            600: '#c026d3'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-lg border-b-4 border-primary-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-6">
+                <div class="flex items-center space-x-4">
+                    <img src="images/logos/Logotipo.webp" alt="Irene Nutrición" class="h-16 w-auto" onerror="this.style.display='none';">
+                    <div class="bg-primary-600 text-white px-4 py-2 rounded-lg">
+                        <h1 class="text-2xl font-bold">Irene Nutrición</h1>
+                        <p class="text-sm">Bienestar Integral</p>
+                    </div>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#inicio" class="text-gray-700 hover:text-primary-600 font-medium transition-colors">Inicio</a>
+                    <a href="#servicios" class="text-gray-700 hover:text-primary-600 font-medium transition-colors">Servicios</a>
+                    <a href="#sobre-mi" class="text-gray-700 hover:text-primary-600 font-medium transition-colors">Sobre Mí</a>
+                    <a href="#precios" class="text-gray-700 hover:text-primary-600 font-medium transition-colors">Precios</a>
+                    <a href="#contacto" class="bg-primary-600 text-white px-6 py-2 rounded-lg hover:bg-primary-700 transition-colors">
+                        Reservar Consulta
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="relative bg-gradient-to-br from-primary-500 to-secondary-500 text-white py-20 lg:py-32">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="images/hero/Portada.webp" alt="Nutrición Saludable" class="w-full h-full object-cover opacity-30" onerror="this.style.display='none';">
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h1 class="text-5xl lg:text-7xl font-bold mb-6">
+                        Tu <span class="text-yellow-300">bienestar</span> es mi{' '}
+                        <span class="text-yellow-300">pasión</span>
+                    </h1>
+                    <p class="text-xl lg:text-2xl mb-8 text-gray-100">
+                        Soy <strong class="text-yellow-300">Irene</strong>, especialista en nutrición clínica con enfoque integrativo. 
+                        Te acompaño en tu camino hacia una vida más saludable y equilibrada.
+                    </p>
+                    
+                    <!-- Price boxes destacados -->
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div class="bg-white/20 backdrop-blur-sm p-6 rounded-xl border border-white/30">
+                            <div class="text-3xl font-bold text-yellow-300">90€</div>
+                            <div class="text-lg">Primera consulta</div>
+                            <div class="text-sm text-gray-200">120 min • Evaluación completa</div>
+                        </div>
+                        <div class="bg-white/20 backdrop-blur-sm p-6 rounded-xl border border-white/30">
+                            <div class="text-3xl font-bold text-yellow-300">60€</div>
+                            <div class="text-lg">Consulta seguimiento</div>
+                            <div class="text-sm text-gray-200">60 min • Plan nutricional</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#contacto" class="bg-yellow-400 text-gray-900 px-8 py-4 rounded-lg text-xl font-bold hover:bg-yellow-300 transition-colors text-center shadow-lg">
+                            🎯 Reservar Consulta Gratuita
+                        </a>
+                        <a href="#servicios" class="bg-white/20 backdrop-blur-sm border-2 border-white text-white px-8 py-4 rounded-lg text-xl font-bold hover:bg-white/30 transition-colors text-center">
+                            Conocer Servicios
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Image -->
+                <div class="relative">
+                    <img src="images/about/Irene.webp" alt="Irene Nutricionista" class="w-full rounded-2xl shadow-2xl border-4 border-white/30" onerror="this.style.display='none';">
+                    
+                    <!-- Floating cards con estadísticas -->
+                    <div class="absolute -bottom-8 -left-8 bg-white p-6 rounded-xl shadow-2xl border-4 border-yellow-400">
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-primary-600 mb-1">500+</div>
+                            <div class="text-sm text-gray-600">Clientes Satisfechos</div>
+                        </div>
+                    </div>
+                    
+                    <div class="absolute -top-8 -right-8 bg-white p-6 rounded-xl shadow-2xl border-4 border-secondary-500">
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-secondary-600 mb-1">5+</div>
+                            <div class="text-sm text-gray-600">Años Experiencia</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
+                    Mis <span class="text-primary-600">Especialidades</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Ofrezco un enfoque integral y personalizado para mejorar tu salud a través de la nutrición
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service 1: Nutrición General -->
+                <div class="bg-white p-8 rounded-2xl shadow-xl border-2 border-primary-100 hover:shadow-2xl hover:border-primary-300 transition-all duration-300 group">
+                    <div class="relative mb-6 overflow-hidden rounded-xl">
+                        <img src="images/services/Nutricion.webp" alt="Nutrición General" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzY2N2VlYSIvPjwvc3ZnPg=='">
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center">Nutrición General</h3>
+                    <p class="text-gray-600 text-center mb-6">
+                        Alimentación equilibrada adaptada a tus necesidades, objetivos y estilo de vida.
+                    </p>
+                    <div class="text-center">
+                        <div class="inline-flex items-center space-x-2 text-primary-600 font-bold">
+                            <span class="text-lg">Desde 60€/sesión</span>
+                            <span class="text-sm bg-primary-100 px-3 py-1 rounded-full">60min</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 2: Trastornos Mentales -->
+                <div class="bg-white p-8 rounded-2xl shadow-xl border-2 border-secondary-100 hover:shadow-2xl hover:border-secondary-300 transition-all duration-300 group">
+                    <div class="relative mb-6 overflow-hidden rounded-xl">
+                        <img src="images/services/Mentales.webp" alt="Trastornos Mentales" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Q5NDZlZiIvPjwvc3ZnPg=='">
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center">Trastornos Mentales</h3>
+                    <p class="text-gray-600 text-center mb-6">
+                        Apoyo nutricional especializado para ansiedad, depresión y bienestar emocional.
+                    </p>
+                    <div class="text-center">
+                        <div class="inline-flex items-center space-x-2 text-secondary-600 font-bold">
+                            <span class="text-lg">Desde 90€/consulta</span>
+                            <span class="text-sm bg-secondary-100 px-3 py-1 rounded-full">120min</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 3: Autismo -->
+                <div class="bg-white p-8 rounded-2xl shadow-xl border-2 border-green-100 hover:shadow-2xl hover:border-green-300 transition-all duration-300 group">
+                    <div class="relative mb-6 overflow-hidden rounded-xl">
+                        <img src="images/services/Autismo.webp" alt="Autismo" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzEwYjk4MSIvPjwvc3ZnPg=='">
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center">Autismo</h3>
+                    <p class="text-gray-600 text-center mb-6">
+                        Nutrición especializada para niños y adultos con trastorno del espectro autista.
+                    </p>
+                    <div class="text-center">
+                        <div class="inline-flex items-center space-x-2 text-green-600 font-bold">
+                            <span class="text-lg">Desde 90€/consulta</span>
+                            <span class="text-sm bg-green-100 px-3 py-1 rounded-full">120min</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 4: Nutrición Integrativa -->
+                <div class="bg-white p-8 rounded-2xl shadow-xl border-2 border-yellow-100 hover:shadow-2xl hover:border-yellow-300 transition-all duration-300 group">
+                    <div class="relative mb-6 overflow-hidden rounded-xl">
+                        <img src="images/services/Integrativa.webp" alt="Nutrición Integrativa" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y1OWUwYiIvPjwvc3ZnPg=='">
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center">Nutrición Integrativa</h3>
+                    <p class="text-gray-600 text-center mb-6">
+                        Enfoque holístico que combina nutrición convencional con medicina funcional.
+                    </p>
+                    <div class="text-center">
+                        <div class="inline-flex items-center space-x-2 text-yellow-600 font-bold">
+                            <span class="text-lg">Desde 90€/consulta</span>
+                            <span class="text-sm bg-yellow-100 px-3 py-1 rounded-full">120min</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre-mi" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-4xl lg:text-6xl font-bold text-gray-900 mb-8">
+                        ¿Por qué elegir mi <span class="text-primary-600">enfoque</span>?
+                    </h2>
+                    <div class="space-y-8">
+                        <div class="flex items-start space-x-6">
+                            <div class="w-12 h-12 bg-primary-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Enfoque Personalizado</h3>
+                                <p class="text-gray-600 text-lg">Cada plan se diseña específicamente para ti, considerando tu historia médica, preferencias y objetivos únicos.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-6">
+                            <div class="w-12 h-12 bg-secondary-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Nutrición Basada en Evidencia</h3>
+                                <p class="text-gray-600 text-lg">Aplico las últimas investigaciones científicas para garantizar resultados efectivos y seguros.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-6">
+                            <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Apoyo Continuo</h3>
+                                <p class="text-gray-600 text-lg">Te acompaño durante todo el proceso con seguimiento personalizado y ajustes según tus necesidades.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="bg-gradient-to-br from-primary-100 to-secondary-100 rounded-2xl p-8 shadow-2xl">
+                        <img src="images/about/Consulta-conmigo-885x1024.webp" alt="Consulta con Irene" class="w-full rounded-xl mb-6 shadow-lg" onerror="this.style.display='none';">
+                        
+                        <div class="text-center">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4">Mi Pasión por el Bienestar</h3>
+                            <p class="text-gray-600 mb-6 text-lg">
+                                Mi experiencia personal con problemas de salud me llevó a descubrir el poder transformador 
+                                de la nutrición integrativa. Ahora me dedico a ayudar a otros a encontrar su equilibrio.
+                            </p>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="bg-white p-4 rounded-xl shadow-lg">
+                                    <div class="text-3xl font-bold text-primary-500">5+</div>
+                                    <div class="text-sm text-gray-600">Años de experiencia</div>
+                                </div>
+                                <div class="bg-white p-4 rounded-xl shadow-lg">
+                                    <div class="text-3xl font-bold text-secondary-500">500+</div>
+                                    <div class="text-sm text-gray-600">Clientes ayudados</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="precios" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
+                    Sistema de Precios <span class="text-primary-600">Inteligente</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Precios transparentes que se adaptan automáticamente según tu historial de consultas
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Primera Consulta -->
+                <div class="bg-white rounded-3xl p-8 shadow-2xl border-4 border-primary-200 relative transform hover:scale-105 transition-transform duration-300">
+                    <div class="absolute -top-6 left-1/2 transform -translate-x-1/2">
+                        <span class="bg-gradient-to-r from-primary-500 to-primary-600 text-white px-6 py-2 rounded-full text-lg font-bold shadow-lg">Más Popular</span>
+                    </div>
+                    <div class="text-center mb-8">
+                        <h3 class="text-3xl font-bold text-gray-900 mb-3">Primera Consulta</h3>
+                        <p class="text-gray-600 text-lg mb-4">Evaluación completa inicial</p>
+                        <div class="text-5xl font-bold text-primary-600 mb-2">90€</div>
+                        <div class="text-lg text-gray-500">120 minutos</div>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center space-x-3">
+                            <svg class="w-6 h-6 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span class="text-gray-700 text-lg">Evaluación nutricional completa</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="w-6 h-6 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span class="text-gray-700 text-lg">Historial médico detallado</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="w-6 h-6 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span class="text-gray-700 text-lg">Plan personalizado inicial</span>
+                        </li>
+                    </ul>
+                    <a href="#contacto" class="w-full bg-gradient-to-r from-primary-500 to-primary-600 text-white py-4 rounded-xl text-center font-bold text-lg hover:from-primary-600 hover:to-primary-700 transition-colors block shadow-lg">
+                        Reservar Primera Consulta
+                    </a>
+                </div>
+
+                <!-- Segunda Consulta -->
+                <div class="bg-white rounded-3xl p-8 shadow-2xl border-4 border-secondary-200 relative transform hover:scale-105 transition-transform duration-300">
+                    <div class="text-center mb-8">
+                        <h3 class="text-3xl font-bold text-gray-900 mb-3">Segunda Consulta</h3>
+                        <p class="text-gray-600 text-lg mb-4">Seguimiento + Plan Nutricional</p>
+                        <div class="text-5xl font-bold text-secondary-600 mb-2">60€</div>
+                        <div class="text-lg text-gray-500">60 minutos</div>
+                    </div>
+                    <ul class="space-y-4 mb-6">
+                        <li class="flex items-center space-x-3">
+                            <svg class="w-6 h-6 text-secondary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span class="text-gray-700 text-lg">Revisión de progreso</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="w-6 h-6 text-secondary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span class="text-gray-700 text-lg">Ajuste del plan nutricional</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="w-6 h-6 text-secondary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span class="text-gray-700 text-lg">Plan nutrición personalizada</span>
+                        </li>
+                    </ul>
+                    <div class="bg-gradient-to-r from-yellow-100 to-yellow-200 p-4 rounded-xl mb-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-lg font-bold text-gray-900">Plan Nutrición Personalizada</span>
+                                <p class="text-sm text-gray-600">Plan nutricional completo personalizado</p>
+                            </div>
+                            <span class="text-xl font-bold text-gray-900">+30€</span>
+                        </div>
+                    </div>
+                    <a href="#contacto" class="w-full bg-gradient-to-r from-secondary-500 to-secondary-600 text-white py-4 rounded-xl text-center font-bold text-lg hover:from-secondary-600 hover:to-secondary-700 transition-colors block shadow-lg">
+                        Reservar Segunda Consulta
+                    </a>
+                </div>
+
+                <!-- Consultas Siguientes -->
+                <div class="bg-white rounded-3xl p-8 shadow-2xl border-4 border-gray-200 relative transform hover:scale-105 transition-transform duration-300">
+                    <div class="text-center mb-8">
+                        <h3 class="text-3xl font-bold text-gray-900 mb-3">Consultas Siguientes</h3>
+                        <p class="text-gray-600 text-lg mb-4">Seguimiento continuo</p>
+                        <div class="text-5xl font-bold text-gray-700 mb-2">60€</div>
+                        <div class="text-lg text-gray-500">60 minutos</div>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center space-x-3">
+                            <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span class="text-gray-700 text-lg">Seguimiento de objetivos</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span class="text-gray-700 text-lg">Optimización del plan</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span class="text-gray-700 text-lg">Apoyo continuo</span>
+                        </li>
+                    </ul>
+                    <a href="#contacto" class="w-full bg-gradient-to-r from-gray-700 to-gray-800 text-white py-4 rounded-xl text-center font-bold text-lg hover:from-gray-800 hover:to-gray-900 transition-colors block shadow-lg">
+                        Reservar Seguimiento
+                    </a>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <p class="text-lg text-gray-500 mb-6 font-medium">
+                    * El sistema detecta automáticamente tu historial de consultas por email
+                </p>
+                <div class="flex flex-wrap justify-center gap-6 text-sm">
+                    <span class="flex items-center space-x-2 bg-green-100 px-4 py-2 rounded-full">
+                        <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span class="text-green-700 font-medium">Sin registro requerido</span>
+                    </span>
+                    <span class="flex items-center space-x-2 bg-green-100 px-4 py-2 rounded-full">
+                        <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span class="text-green-700 font-medium">Detección por email</span>
+                    </span>
+                    <span class="flex items-center space-x-2 bg-green-100 px-4 py-2 rounded-full">
+                        <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span class="text-green-700 font-medium">Persistencia automática</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="py-20 bg-gradient-to-br from-gray-900 to-gray-800 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-6xl font-bold mb-6">
+                    ¿Listo para <span class="text-yellow-400">transformar</span> tu salud?
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Comenzamos con una consulta de evaluación completamente gratuita. 
+                    Descubrimos juntos cuál es el mejor camino para ti.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <!-- Contact Info -->
+                <div class="space-y-8">
+                    <div class="flex items-start space-x-6">
+                        <div class="w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center flex-shrink-0">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">Teléfono</h3>
+                            <p class="text-gray-300 text-lg">+34 600 000 000</p>
+                            <p class="text-sm text-gray-400">Respuesta inmediata</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-6">
+                        <div class="w-16 h-16 bg-secondary-500 rounded-full flex items-center justify-center flex-shrink-0">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 7.89a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">Email</h3>
+                            <p class="text-gray-300 text-lg">irene@nutricion.com</p>
+                            <p class="text-sm text-gray-400">Respuesta en 24h</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-6">
+                        <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">WhatsApp</h3>
+                            <p class="text-gray-300 text-lg">+34 600 000 000</p>
+                            <p class="text-sm text-gray-400">Chat directo</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20">
+                    <h3 class="text-2xl font-bold mb-6 text-center">Reserva tu Consulta Gratuita</h3>
+                    <form class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-200 mb-2">Nombre completo</label>
+                            <input type="text" class="w-full px-4 py-3 border border-white/30 bg-white/10 text-white rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent placeholder-gray-300" placeholder="Tu nombre completo">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-200 mb-2">Email</label>
+                            <input type="email" class="w-full px-4 py-3 border border-white/30 bg-white/10 text-white rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent placeholder-gray-300" placeholder="tu@email.com">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-200 mb-2">Teléfono</label>
+                            <input type="tel" class="w-full px-4 py-3 border border-white/30 bg-white/10 text-white rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent placeholder-gray-300" placeholder="+34 600 000 000">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-200 mb-2">¿Qué te gustaría trabajar?</label>
+                            <select class="w-full px-4 py-3 border border-white/30 bg-white/10 text-white rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent">
+                                <option value="" class="text-gray-900">Selecciona una opción</option>
+                                <option value="nutricion-general" class="text-gray-900">Nutrición General</option>
+                                <option value="trastornos-mentales" class="text-gray-900">Trastornos Mentales</option>
+                                <option value="autismo" class="text-gray-900">Autismo</option>
+                                <option value="nutricion-integrativa" class="text-gray-900">Nutrición Integrativa</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-200 mb-2">Mensaje</label>
+                            <textarea rows="4" class="w-full px-4 py-3 border border-white/30 bg-white/10 text-white rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent placeholder-gray-300" placeholder="¿En qué puedo ayudarte específicamente?"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 py-4 rounded-lg font-bold text-lg hover:from-yellow-300 hover:to-yellow-400 transition-colors shadow-lg">
+                            Enviar Solicitud de Consulta
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="flex items-center justify-center space-x-4 mb-6">
+                    <img src="images/logos/Logotipo.webp" alt="Irene Nutrición" class="h-12 w-auto" onerror="this.style.display='none';">
+                    <div>
+                        <h3 class="text-2xl font-bold">Irene Nutrición</h3>
+                        <p class="text-gray-400">Bienestar Integral</p>
+                    </div>
+                </div>
+                <p class="text-gray-400 mb-8 max-w-2xl mx-auto text-lg">
+                    Especialista en nutrición clínica con enfoque integrativo. 
+                    Te acompaño en tu camino hacia una vida más saludable y equilibrada.
+                </p>
+                <div class="flex justify-center space-x-8 mb-8">
+                    <a href="tel:+34600000000" class="text-gray-400 hover:text-white transition-colors">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                        </svg>
+                    </a>
+                    <a href="mailto:irene@nutricion.com" class="text-gray-400 hover:text-white transition-colors">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                        </svg>
+                    </a>
+                    <a href="https://wa.me/34600000000" class="text-gray-400 hover:text-white transition-colors">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                        </svg>
+                    </a>
+                </div>
+                <div class="border-t border-gray-800 pt-8">
+                    <p class="text-gray-400 text-lg">
+                        © 2025 Irene Nutrición. Todos los derechos reservados.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Smooth scroll script -->
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('shadow-xl');
+            } else {
+                header.classList.remove('shadow-xl');
+            }
+        });
+
+        // Add loading animation to images
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('load', function() {
+                this.style.opacity = '1';
+            });
+            img.style.opacity = '0';
+            img.style.transition = 'opacity 0.3s ease';
+        });
+    </script>
+</body>
+</html>
