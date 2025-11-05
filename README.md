@@ -2,6 +2,24 @@
 
 Una aplicación Next.js moderna y totalmente funcional para gestionar reservas de consultas nutricionales con detección inteligente de precios, pagos en línea y panel de administración.
 
+---
+
+## 🚀 ¿Listo para Producción?
+
+**Si acabas de subir el código a GitHub y quieres poner el sitio en línea:**
+
+👉 **Lee la [GUÍA DE PRODUCCIÓN PASO A PASO](./GUIA-PRODUCCION.md)** 
+
+Esta guía te llevará desde cero hasta tener tu sitio completamente funcional en internet:
+- ✅ Configurar Supabase (base de datos)
+- ✅ Configurar Stripe (pagos)
+- ✅ Desplegar en Vercel (hosting gratis)
+- ✅ Verificar que todo funcione
+
+**Tiempo estimado:** 30-45 minutos
+
+---
+
 ## ✨ Características Principales
 
 ### 🎯 Sistema de Reservas Inteligente
